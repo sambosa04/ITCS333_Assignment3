@@ -4,8 +4,8 @@ Assignment 3 for ITCS333
 
 Name: Hassan Mahmood Alaradi
 ID:202208051
-task: did javascript part
+Task: I did the JS part
 
 Name: Ahmed Taha
 ID:202203742
-task: did Html part
+Task: I did the HTML part
