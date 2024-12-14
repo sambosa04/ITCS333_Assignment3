@@ -41,9 +41,53 @@ task: did Html part
         </tbody>
       </table>
     </div>
-    <!-- link html file to script.js file -->
     <script>
       // Hassan,202208051 will do this part
+             async function getData() {
+    const url = "https://data.gov.bh/api/explore/v2.1/catalog/datasets/01-statistics-of-students-nationalities_updated/records?where=colleges%20like%20%22IT%22%20AND%20the_programs%20like%20%22bachelor%22&limit=100";
+    const responce = await fetch(url);
+    const data = await responce.json();
+
+    // Get the element that we want to write data in it
+    let content = document.getElementById("content");
+    data.results.forEach(element => {
+        
+        // Create a tr elements 
+        let tr  = document.createElement("tr");
+
+        // Create td that display the data for every row
+        let td1  = document.createElement("td");
+        let td2  = document.createElement("td");
+        let td3  = document.createElement("td");
+        let td4  = document.createElement("td");
+        let td5  = document.createElement("td");
+        let td6  = document.createElement("td");
+
+        // put the data into every td element
+        td1.innerText = element['year'];
+        td2.innerText = element['semester'];
+        td3.innerText = element['the_programs'];
+        td4.innerText = element['nationality'];
+        td5.innerText = element['colleges'];
+        td6.innerText = element['number_of_students'];
+
+
+        // Make all td children for tr
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tr.appendChild(td5);
+        tr.appendChild(td6);
+
+
+        // Make tr children for (content) where we want to display all data
+        content.appendChild(tr);
+    });
+}
+
+
+getData();
     </script>
   </body>
 </html>
